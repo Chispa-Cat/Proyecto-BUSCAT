@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Rutas - Transporte Público Puebla/Cholula</title>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="buscat.png" alt="Logo Transporte Público">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="Inicio.html">Inicio</a></li>
+                    <li><a href="Viajar.html">Viajar</a></li>
+                    <li><a href="Horarios.html">Horarios</a></li>
+                    <li><a href="Rutas.html">Rutas</a></li>
+                    <li><a href="Cuenta.html" class="active">Mi Cuenta</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="mi-cuenta">
+            <div class="foto-nombre">
+                <h2>Tu Perfil</h2>
+                <div class="foto-perfil">
+                    <img src="default-profile.png" alt="Foto de Perfil" id="profile-pic"><br>
+                    <button id="change-photo">Cambiar Foto</button>
+                    <input type="file" id="photo-input" accept="image/*" style="display: none;">
+                </div>
+                <div class="info-cuenta">
+                    <p><strong>Nombre:</strong> <span id="username"></p>
+                    <button id="edit-name">Editar Nombre</button>
+                </div>
+            </div>
+
+            <div class="ajustes">
+                <h2>Ajustes de Cuenta</h2>
+                <ul>
+                    <li><a href="#">Métodos de Pago</a></li>
+                    <li><a href="#">Historial de Viajes</a></li>
+                    <li><a href="#">Notificaciones</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                    <li><a href="#">Soporte</a></li>
+                </ul>
+                <div class="acciones">
+                    <a href="login.html" class="btn-link">Iniciar Sesión</a>
+                    <a href="registro.html" class="btn-link">Registrarse</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div>
+                <h5>Contacto</h5>
+                <p>Email: soporte@transporteapp.com</p>
+                <p>Teléfono: +52 55 1234 5678</p>
+            </div>
+            <div>
+                <h5>Síguenos en redes sociales</h5>
+            <div class="social-media">
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            </div>
+            <div>
+                <h5>Enlaces Útiles</h5>
+                <ul>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Cambiar foto de perfil
+document.getElementById("change-photo").addEventListener("click", () => {
+    document.getElementById("photo-input").click();
+});
+
+document.getElementById("photo-input").addEventListener("change", (event) => {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+            document.getElementById("profile-pic").src = reader.result;
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+// Cambiar nombre de usuario
+document.getElementById("edit-name").addEventListener("click", () => {
+    const newName = prompt("Introduce tu nuevo nombre de usuario:");
+    if (newName) {
+        document.getElementById("username").textContent = newName;
+    }
+});
+
+    </script>
+
+</body>
+</html>
+<style type="text/css">
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+header {
+    background-color: #4a3f7d; /* Morado */
+    padding: 15px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img {
+    height: 50px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #79b473; /* Verde */
+}
+
+nav ul li a.active {
+    color: #dd9adb;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.mi-cuenta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 900px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.foto-nombre, .ajustes {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.foto-perfil img {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.foto-perfil button {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.foto-perfil button:hover {
+    background: #3b3269;
+}
+
+.info-cuenta button {
+    padding: 5px 10px;
+    color: #fff;
+    background: #79b473;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ajustes ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ajustes ul li {
+    margin: 10px 0;
+}
+
+.ajustes ul li a {
+    color: #4a3f7d;
+    text-decoration: none;
+}
+
+.ajustes ul li a:hover {
+    text-decoration: underline;
+}
+
+.acciones {
+    margin-top: 20px;
+}
+
+.acciones .btn-link {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background: #4a3f7d;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.acciones .btn-link:hover {
+    background: #3b3269;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .social-media {
+    margin-bottom: 15px;
+}
+
+footer .social-media a {
+    color: #f4f4f4;
+    margin: 0 10px;
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer .social-media a:hover {
+    color: #79b473; 
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+footer h5 {
+    margin-bottom: 10px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 5px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer ul li a:hover {
+    color: #79b473;
+}
+</style>
